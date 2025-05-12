@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: helvetica;
+
+    }
+    .form{
+        width: 900px;
+        height: 2900px;
+        border: 1px solid rgb(126, 124, 124);
+        margin: 100px auto;
+        border-radius: 5px;
+     
+    }
+    #post{
+        text-align: center;
+        padding-top: 20px;
+        margin-bottom: -110px;
+        padding: 20px;
+    }
+    #properties{
+        color: rgb(99, 95, 95);
+        padding-top: 40px;
+        font-size: 12px;
+    }
+    #change{
+        color: blue;
+        text-decoration: underline;
+        padding-top: 40px;
+          padding-left: 10px;
+          font-size: 15px;
+         
+    }
+    #change:hover{
+        text-decoration: none;
+    }
+    .pro{
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px;
+
+    }
+    .select{
+        border-bottom: 1px solid black;
+           padding: 20px;
+    }
+
+    .include{
+        padding: 35px;
+    }
+    #include{
+        padding-bottom: 20px;
+    }
+
+    .include p:hover{
+        background-color:lightblue;
+        color: white;
+
+    }
+
+
+    .flats{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+    }
+    .flats p{
+        border: 1px solid rgb(129, 125, 125);
+        padding: 10px;
+        border-radius: 2px;
+       
+    }
+
+     .farm{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+    }
+    .farm p{
+        border: 1px solid rgb(98, 97, 97);
+        padding: 10px;
+        border-radius: 2px;
+       
+    }
+
+    .container {
+            display: flex;
+            gap: 10px; 
+        }
+        .box {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid black;
+        }
+
+        .container :hover{
+            background-color: lightblue;
+        }
+       .farm{
+        padding-bottom: 30px;
+       }
+
+       .container{
+        padding-bottom: 30px;
+       }
+
+       .super{
+        width: 400px;
+        height: 50px;
+        border: 1px solid black;
+       
+       }
+
+       .dec{
+         width: 400px;
+        height: 60px;
+        border: 1px solid black;
+        
+
+       }
+
+       .p{
+        padding-top: 30px;
+       }
+
+       .border{
+        border-top: 1px solid black;
+       }
+
+       .set{
+        padding: 35px;
+       }
+
+       .price{
+         width: 400px;
+        height: 40px;
+        border: 1px solid black;
+        padding-top: 10px;
+       }
+
+       .price1{
+        color: rgb(156, 153, 153);
+        padding-top: 10px;
+        padding-bottom: 5px;
+       }
+
+        .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 5px;
+      width: 90vw;
+      max-width: 400px;
+      aspect-ratio: 4 / 5;
+      padding-left: 35px;
+      padding-bottom: 20px;
+     
+    }
+
+    .box {
+      background: #fff;
+      border: 1.5px dashed #bbb;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .box input[type="file"] {
+      display: none;
+    }
+
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .camera-icon {
+      font-size: 18px;
+      color: #777;
+      z-index: 1;
+    }
+
+    #upload{
+        padding: 35px;
+    }
+        .confirm{
+        padding: 35px;
+       
+    }
+
+    .confirm1{
+       
+        display: flex;
+        align-items: center;
+        gap: 120px;
+        padding-top: 20px;
+          padding-bottom: 30px;
+        
+    }
+
+    .list{
+        font-weight: bold;
+      
+    }
+
+       select {
+      width: 500px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    .review{
+        padding: 35px;
+       
+    }
+
+    .review:hover{
+        background-color: white;
+    }
+
+    .image-box {
+      width: 100px;
+      height: 100px;
+      border: 2px dashed #ccc;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/747/747545.png'); /* Camera icon */
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      border-radius: 8px;
+     
+    }
+
+    input[type="file"] {
+      display: none;
+      
+    }
+
+
+     .container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-family: sans-serif;
+    }
+
+    .image-box {
+      width: 100px;
+      height: 100px;
+      border: 2px dashed #ccc;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/747/747545.png');
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .name-input {
+      width: 200px;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .char-count {
+      font-size: 12px;
+      color: gray;
+      margin-top: 5px;
+    }
+
+    #states{
+        width: 400px;
+        height: 50px;
+    }
+
+    .project-name-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+          
+        }
+
+         textarea {
+            width: 400px;
+            height: 50px;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .counter {
+            font-size: 12px;
+            color: gray;
+        }
+
+</style>
+<body>
+
+    <h2 id="post">POST YOUR AD</h2>
+    <div class="form">
+        <div class="select">
+
+        <h2>Selected category</h2>
+        <div class="pro"> 
+        <p id="properties">Properties / For Sale: Houses & Apartments</p>
+         <p id="change">Change</p>
+         </div>
+           </div>
+
+           <div class="include">
+            <h2 id="include">Include some details</h2>
+            Type *
+              
+            <div class="flats">
+            <p>Flats / Apartments</p> <p>Independent / Builder Floors</p>
+            </div>
+            <div class="farm">
+            <p>Farm House</p> <p>House & Villa</p>
+            </div>
+                BHK
+             <div class="container">
+                
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">4+</div>
+    </div>
+
+    Bathroom
+
+      <div class="container">
+                
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">4+</div>
+    </div>
+
+    Furnishing
+      <div class="container">
+                
+        <div class="box">Furnished</div>
+        <div class="box">Semi-Furnished</div>
+        <div class="box">Unfurnished</div>
+    </div>
+      Project Status
+      <div class="container">
+                
+        <div class="box">New Launch</div>
+        <div class="box">Ready to Move</div>
+        <div class="box">Under Construction</div>
+    </div>
+     Listed by
+      <div class="container">
+                
+        <div class="box">Builder</div>
+        <div class="box">Dealer</div>
+        <div class="box">Owner</div>
+    </div>
+
+    <div class="p">
+          Super Builtup area sqft *
+    </div>
+    <input type="text" style="height: 40px; width:400px;">
+    
+       <div class="p">Carpet Area sqft *</div>
+    <input type="text" style="height: 40px; width:400px;">
+  <div class="p">  Maintenance (Monthly)</div>
+    <input type="text" style="height: 40px; width:400px;">
+
+   <div class="p">Total Floors</div>
+   <input type="text" style="height: 40px; width:400px;">
+
+    <div class="p"> Floor No</div>
+
+    <input type="text" style="height: 40px; width:400px;">
+ 
+ 
+        <div class="p">Car Parking</div>
+      <div class="container">
+                
+        <div class="box">0</div>
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">3+</div>
+    </div>
+
+   <div class="p">Facing</div>
+
+     <select id="states" name="states">
+    <option value=""></option>
+    <option value="andhra_pradesh">East</option>
+    <option value="arunachal_pradesh">West</option>
+    <option value="assam">North</option>
+    <option value="bihar">South</option>
+   
+  </select>
+
+
+    
+       <div class="p"> Project Name</div>
+
+       
+    <label for="project-name"></label>
+    <input type="text" id="project-name" class="project-name-box" maxlength="70"/>
+
+    <!-- This is where the character count will be displayed -->
+    <div class="character-count">
+        <span id="char-count">0</span> / 70 characters
+    </div>
+
+    <script>
+        // JavaScript to update the existing character count element
+        const projectNameInput = document.getElementById('project-name');
+        const charCountDisplay = document.getElementById('char-count');
+
+        // Update character count whenever the user types
+        projectNameInput.addEventListener('input', function() {
+            const currentLength = projectNameInput.value.length;
+            charCountDisplay.textContent = currentLength;
+        });
+    </script>
+       
+   
+
+   <div class="p"> Ad title *</div>
+   <div class="container">
+       
+        <textarea id="textInput" maxlength="70" ></textarea> 
+        <div class="counter" id="charCount">0 / 70 characters</div>
+    </div>
+
+    <!-- Move the script tag here, so it runs after the HTML is loaded -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('textInput');
+            const charCount = document.getElementById('charCount');
+
+            textInput.addEventListener('input', function() {
+                const currentLength = textInput.value.length ;
+                
+                charCount.textContent = `${currentLength} / 70 characters`;
+            });
+        });
+    </script>
+   
+    
+
+  <div class="p">  Description *</div>
+   <input type="text" style="height: 60px; width:400px;">
+     
+              
+              
+           </div>
+
+           <div class="border"></div>
+
+           <div class="set">
+            <h2>Set a price</h2>
+
+            <div class="price1">price *</div>
+          
+            <input type="text"value=" ₹" style="height: 40px; width:400px;">
+           </div>
+           <div class="border">
+            
+           </div>
+          
+
+
+            <h2 id="upload">Upload up to 20 photos</h2>
+           <div class="grid">  </div>
+         
+
+  <script>
+    const grid = document.querySelector('.grid');
+
+    for (let i = 0; i < 20; i++) {
+      const box = document.createElement('div');
+      box.classList.add('box');
+
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.id = `upload-${i}`;
+
+      const label = document.createElement('label');
+      label.htmlFor = `upload-${i}`;
+      label.classList.add('camera-icon');
+      label.innerHTML = '📷';
+
+      input.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(file);
+          box.appendChild(img);
+          label.style.display = 'none';
+        }
+      });
+
+      box.appendChild(input);
+      box.appendChild(label);
+      grid.appendChild(box);
+    }
+  </script>
+
+  <div class="border"></div>
+
+  <div class="confirm">
+    <h2>Confirm your location</h2>
+      <div class="confirm1">
+         
+
+         <div class="list">
+    List
+    </div>
+
+    <div class="location">
+        CURRENT LOCATION
+
+    </div>
+        
+      </div>
+
+      
+ <p><label for="states"> State *</label></p> 
+  <select id="states" name="states">
+    <option value="">-- Select State --</option>
+    <option value="andhra_pradesh">Andhra Pradesh</option>
+    <option value="arunachal_pradesh">Arunachal Pradesh</option>
+    <option value="assam">Assam</option>
+    <option value="bihar">Bihar</option>
+    <option value="chhattisgarh">Chhattisgarh</option>
+    <option value="goa">Goa</option>
+    <option value="gujarat">Gujarat</option>
+    <option value="haryana">Haryana</option>
+    <option value="himachal_pradesh">Himachal Pradesh</option>
+    <option value="jharkhand">Jharkhand</option>
+    <option value="karnataka">Karnataka</option>
+    <option value="kerala">Kerala</option>
+    <option value="madhya_pradesh">Madhya Pradesh</option>
+    <option value="maharashtra">Maharashtra</option>
+    <option value="manipur">Manipur</option>
+    <option value="meghalaya">Meghalaya</option>
+    <option value="mizoram">Mizoram</option>
+    <option value="nagaland">Nagaland</option>
+    <option value="odisha">Odisha</option>
+    <option value="punjab">Punjab</option>
+    <option value="rajasthan">Rajasthan</option>
+    <option value="sikkim">Sikkim</option>
+    <option value="tamil_nadu">Tamil Nadu</option>
+    <option value="telangana">Telangana</option>
+    <option value="tripura">Tripura</option>
+    <option value="uttar_pradesh">Uttar Pradesh</option>
+    <option value="uttarakhand">Uttarakhand</option>
+    <option value="west_bengal">West Bengal</option>
+    <option value="andaman_nicobar">Andaman and Nicobar Islands</option>
+    <option value="chandigarh">Chandigarh</option>
+    <option value="dadra_nagar_haveli">Dadra and Nagar Haveli and Daman and Diu</option>
+    <option value="delhi">Delhi</option>
+    <option value="jammu_kashmir">Jammu and Kashmir</option>
+    <option value="ladakh">Ladakh</option>
+    <option value="lakshadweep">Lakshadweep</option>
+    <option value="puducherry">Puducherry</option>
+  </select>
+   
+
+  </div>
+
+
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
