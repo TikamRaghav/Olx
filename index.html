@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    *{
+    <title>olx</title>
+    <style>
+         *{
         padding: 0;
         margin: 0;
         box-sizing: border-box;
@@ -15,7 +14,7 @@
     }
     .form{
         width: 900px;
-        height: 2900px;
+        height: 3500px;
         border: 1px solid rgb(126, 124, 124);
         margin: 100px auto;
         border-radius: 5px;
@@ -54,58 +53,73 @@
            padding: 20px;
     }
 
-    .include{
-        padding: 35px;
-    }
-    #include{
-        padding-bottom: 20px;
-    }
-
-    .include p:hover{
-        background-color:lightblue;
-        color: white;
-
-    }
 
 
-    .flats{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding-bottom: 20px;
-        padding-top: 10px;
-    }
-    .flats p{
-        border: 1px solid rgb(129, 125, 125);
-        padding: 10px;
-        border-radius: 2px;
-       
+
+    .include {
+      padding: 35px;
     }
 
-     .farm{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        
+    #include {
+      padding-bottom: 20px;
     }
-    .farm p{
-        border: 1px solid rgb(98, 97, 97);
-        padding: 10px;
-        border-radius: 2px;
-       
+
+    /* Selection hover & active style */
+    .flats p:hover,
+    .farm p:hover,
+    .box:hover {
+      background-color: lightblue;
+      color: white;
+      cursor: pointer;
+    }
+
+    .flats, .farm {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 20px;
+      padding-top: 10px;
+    }
+
+    .flats p, .farm p {
+      border: 1px solid #817d7d;
+      padding: 10px;
+      border-radius: 2px;
+      cursor: pointer;
     }
 
     .container {
-            display: flex;
-            gap: 10px; 
-        }
-        .box {
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 18px;
-            border: 1px solid black;
-        }
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
 
+    .box1 {
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 18px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+    .selected {
+      background-color: lightblue;
+      color:black;
+    }
+
+    .error {
+      color: red;
+      margin: 5px 0 15px 0;
+      font-size: 14px;
+    }
+
+    /* Ensure headings and labels don't get affected */
+    .include > p, h2 {
+      background-color: transparent !important;
+      color: inherit !important;
+      cursor: default !important;
+    }
+      
         .container :hover{
             background-color: lightblue;
         }
@@ -117,94 +131,300 @@
         padding-bottom: 30px;
        }
 
-       .super{
-        width: 400px;
-        height: 50px;
-        border: 1px solid black;
+
+
+
+        .filter-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* Reduced vertical gap between main sections */
+      max-width: 600px;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+      margin-top: -60px;
+    }
+
+    .filter-section {
+      display: flex;
+      flex-direction: column;
+      gap: 4px; /* Small gap between heading and buttons */
+    }
+
+    .filter-section label {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .button-group button {
+      padding: 10px 20px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      background-color: white;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.2s ease;
+    }
+
+    .button-group button:hover {
+      background-color: lightblue;
+    }
+
+    .button-group button.active {
+      background-color: lightblue;
+      color: black;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+
+    
+     .form-group {
+      margin-bottom: 25px;
+      position: relative;
+      width: 400px;
+      padding-left: 35px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      height: 40px;
+      width: 100%;
+      padding-right: 40px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .tick-icon {
+      position: absolute;
+      right: 10px;
+      top: 35px;
+      width: 20px;
+      height: 20px;
+      background-color: #28a745;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 50%;
+      display: none;
+ 
+    }
+
+    .car{
+        padding-left: 35px;
        
-       }
+    }
+     
 
-       .dec{
-         width: 400px;
-        height: 60px;
-        border: 1px solid black;
-        
-
-       }
-
-       .p{
-        padding-top: 30px;
-       }
-
-       .border{
-        border-top: 1px solid black;
-       }
-
-       .set{
-        padding: 35px;
-       }
-
-       .price{
-         width: 400px;
+    #states{
+        width: 400px;
         height: 40px;
-        border: 1px solid black;
-        padding-top: 10px;
-       }
+    }
 
-       .price1{
-        color: rgb(156, 153, 153);
-        padding-top: 10px;
-        padding-bottom: 5px;
-       }
+    .facing{
+        padding-left: 35px;
+    }
 
-        .grid {
+
+     label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      max-width: 400px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 40px 8px 10px; /* right padding for icon space */
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .tick-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 20px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      display: none; /* Hidden initially */
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .counter {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+      text-align: right;
+      max-width: 400px;
+    }
+
+     
+    .pro{
+      padding-left: 35px;
+    }
+
+    
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .project-input-wrapper {
+      width: 300px;
+      position: relative;
+    }
+
+    #projectInputField {
+      width: 100%;
+      height: 30px;
+      font-size: 14px;
+      padding: 5px 10px;
+      box-sizing: border-box;
+    }
+
+    .project-char-counter {
+      font-size: 12px;
+      color: #555;
+      margin-top: 5px;
+      text-align: right;
+      margin-right: -100px;
+    }
+
+    .project-error-msg {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .project-tick {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 50%;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      display: none;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+      
+    }
+
+
+      input[type="text"] {
+      width: 400px; /* Increased width of the input field */
+      padding: 10px; /* Added some padding for better user experience */
+      font-size: 16px; /* Adjusted font size */
+    }
+
+
+       .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      gap: 5px;
-      width: 90vw;
-      max-width: 400px;
-      aspect-ratio: 4 / 5;
-      padding-left: 35px;
-      padding-bottom: 20px;
-     
+      gap: 6px;
+      max-width: 480px;
+      padding: 35px;
+      margin-top: -50px;
+  
     }
 
     .box {
-      background: #fff;
-      border: 1.5px dashed #bbb;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
+      aspect-ratio: 1 / 1; /* Perfect square */
+      border: 1.5px dashed #ccc;
+      background: #f0f0f0;
       cursor: pointer;
       overflow: hidden;
     }
 
-    .box input[type="file"] {
-      display: none;
+  
+
+    .box-content {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
 
-    .camera-icon {
-      font-size: 18px;
-      color: #777;
+     .remove-icon {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      background: red;
+      color: white;
+      padding: 1px 4px;
+      font-size: 9px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
       z-index: 1;
+    }
+
+    .box.filled .remove-icon {
+      display: block;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .box-content span {
+      font-size: 18px;
     }
 
     #upload{
         padding: 35px;
     }
-        .confirm{
+
+
+
+    .confirm{
         padding: 35px;
        
     }
@@ -219,122 +439,128 @@
         
     }
 
-    .list{
-        font-weight: bold;
-      
-    }
-
-       select {
-      width: 500px;
-      height: 40px;
-      font-size: 16px;
-    }
-
-    .review{
-        padding: 35px;
-       
-    }
-
-    .review:hover{
-        background-color: white;
-    }
-
-    .image-box {
-      width: 100px;
-      height: 100px;
-      border: 2px dashed #ccc;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/747/747545.png'); /* Camera icon */
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-      border-radius: 8px;
-     
-    }
-
-    input[type="file"] {
-      display: none;
-      
-    }
-
-
-     .container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      font-family: sans-serif;
-    }
-
-    .image-box {
-      width: 100px;
-      height: 100px;
-      border: 2px dashed #ccc;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/747/747545.png');
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-
-    input[type="file"] {
-      display: none;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-    }
 
     label {
-      font-size: 14px;
       font-weight: bold;
+      display: block;
       margin-bottom: 5px;
     }
 
-    .name-input {
-      width: 200px;
-      padding: 8px;
+    .title-input-wrapper {
+      width: 400px;
+       /* Small width */
+      position: relative;
+    }
+
+    #adTitleBox {
+      width: 100%;
+      height: 30px; /* Smaller height */
       font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      padding: 5px 10px;
+      box-sizing: border-box;
     }
 
-    .char-count {
+    .title-char-count {
       font-size: 12px;
-      color: gray;
+      color: #555;
       margin-top: 5px;
+      text-align: right;
     }
 
-    #states{
-        width: 400px;
-        height: 50px;
+    .title-error-msg {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
     }
 
-    .project-name-box {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-          
-        }
+    .tick-icon-title {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 50%;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      display: none;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+      
+    }
 
-         textarea {
-            width: 400px;
-            height: 50px;
-            padding: 10px;
-            font-size: 14px;
-        }
-        .counter {
-            font-size: 12px;
-            color: gray;
-        }
 
-</style>
+     .add{
+      padding-left: 35px;
+      padding-top: 10px;
+     }
+
+
+     
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .desc-input-wrapper {
+      width: 400px;
+      position: relative;
+    }
+
+    #descBox {
+      width: 100%;
+      height: 100px;
+      font-size: 14px;
+      padding: 10px;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    .desc-char-count {
+      font-size: 12px;
+      color: #555;
+      margin-top: 5px;
+      text-align: right;
+    }
+
+    .desc-error-msg {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .tick-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background-color: #28a745; /* Green background */
+      color: white;
+      border-radius: 50%;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      display: none;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+      
+      
+    }
+
+
+    .Descr{
+      padding: 35px;
+    }
+    
+       
+    </style>
+</head>
 <body>
-
-    <h2 id="post">POST YOUR AD</h2>
+      <h2 id="post">POST YOUR AD</h2>
     <div class="form">
         <div class="select">
 
@@ -345,210 +571,534 @@
          </div>
            </div>
 
-           <div class="include">
-            <h2 id="include">Include some details</h2>
-            Type *
-              
-            <div class="flats">
-            <p>Flats / Apartments</p> <p>Independent / Builder Floors</p>
-            </div>
-            <div class="farm">
-            <p>Farm House</p> <p>House & Villa</p>
-            </div>
-                BHK
-             <div class="container">
-                
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
-        <div class="box">4</div>
-        <div class="box">4+</div>
+
+
+            <div class="include">
+  <h2 id="include">Include some details</h2>
+  
+  <p>Type *</p>
+  <div class="flats type-group">
+    <p data-group="type">Flats / Apartments</p>
+    <p data-group="type">Independent / Builder Floors</p>
+  </div>
+  <div class="farm type-group">
+    <p data-group="type">Farm House</p>
+    <p data-group="type">House & Villa</p>
+  </div>
+  <div class="error" id="error-type"></div>
+
+  <p>BHK *</p>
+  <div class="container bhk-group">
+    <div class="box1" data-group="bhk">1</div>
+    <div class="box1" data-group="bhk">2</div>
+    <div class="box1" data-group="bhk">3</div>
+    <div class="box1" data-group="bhk">4</div>
+    <div class="box1" data-group="bhk">4+</div>
+  </div>
+  <div class="error" id="error-bhk"></div>
+
+  <p>Bathroom *</p>
+  <div class="container bath-group">
+    <div class="box1" data-group="bath">1</div>
+    <div class="box1" data-group="bath">2</div>
+    <div class="box1" data-group="bath">3</div>
+    <div class="box1" data-group="bath">4</div>
+    <div class="box1" data-group="bath">4+</div>
+  </div>
+  <div class="error" id="error-bath"></div>
+</div>
+
+<script>
+  const groups = [
+    { group: 'type', errorId: 'error-type' },
+    { group: 'bhk', errorId: 'error-bhk' },
+    { group: 'bath', errorId: 'error-bath' }
+  ];
+
+  document.querySelectorAll('[data-group]').forEach(item => {
+    item.addEventListener('click', () => {
+      const group = item.getAttribute('data-group');
+      const isSelected = item.classList.contains('selected');
+
+      // Toggle selection
+      document.querySelectorAll(`[data-group="${group}"]`).forEach(i => i.classList.remove('selected'));
+      if (!isSelected) {
+        item.classList.add('selected');
+      }
+
+      // Real-time validation
+      validateGroup(group);
+    });
+  });
+
+  function validateGroup(group) {
+    const config = groups.find(g => g.group === group);
+    const selected = document.querySelector(`[data-group="${group}"].selected`);
+    const errorDiv = document.getElementById(config.errorId);
+    errorDiv.textContent = selected ? '' : 'Please complete the required field.';
+  }
+</script>
+
+
+
+  <div class="filter-container">
+    <!-- Furnishing Section -->
+    <div class="filter-section" id="furnishing">
+      <label>Furnishing *</label>
+      <div class="button-group">
+        <button data-value="Furnished">Furnished</button>
+        <button data-value="Semi-Furnished">Semi-Furnished</button>
+        <button data-value="Unfurnished">Unfurnished</button>
+      </div>
+      <div class="error" id="error-furnishing"></div>
     </div>
 
-    Bathroom
-
-      <div class="container">
-                
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
-        <div class="box">4</div>
-        <div class="box">4+</div>
+    <!-- Project Status Section -->
+    <div class="filter-section" id="projectStatus">
+      <label>Project Status *</label>
+      <div class="button-group">
+        <button data-value="Ready to Move">Ready to Move</button>
+        <button data-value="Under Construction">Under Construction</button>
+        <button data-value="New Launch">New Launch</button>
+      </div>
+      <div class="error" id="error-projectStatus"></div>
     </div>
 
-    Furnishing
-      <div class="container">
-                
-        <div class="box">Furnished</div>
-        <div class="box">Semi-Furnished</div>
-        <div class="box">Unfurnished</div>
+    <!-- Listed By Section -->
+    <div class="filter-section" id="listedBy">
+      <label>Listed By *</label>
+      <div class="button-group">
+        <button data-value="Owner">Owner</button>
+        <button data-value="Dealer">Dealer</button>
+        <button data-value="Builder">Builder</button>
+      </div>
+      <div class="error" id="error-listedBy"></div>
     </div>
-      Project Status
-      <div class="container">
-                
-        <div class="box">New Launch</div>
-        <div class="box">Ready to Move</div>
-        <div class="box">Under Construction</div>
-    </div>
-     Listed by
-      <div class="container">
-                
-        <div class="box">Builder</div>
-        <div class="box">Dealer</div>
-        <div class="box">Owner</div>
-    </div>
+  </div>
 
-    <div class="p">
-          Super Builtup area sqft *
-    </div>
-    <input type="text" style="height: 40px; width:400px;">
-    
-       <div class="p">Carpet Area sqft *</div>
-    <input type="text" style="height: 40px; width:400px;">
-  <div class="p">  Maintenance (Monthly)</div>
-    <input type="text" style="height: 40px; width:400px;">
+  <script>
+    const sections = [
+      { id: 'furnishing', errorId: 'error-furnishing' },
+      { id: 'projectStatus', errorId: 'error-projectStatus' },
+      { id: 'listedBy', errorId: 'error-listedBy' }
+    ];
 
-   <div class="p">Total Floors</div>
-   <input type="text" style="height: 40px; width:400px;">
+    function setupFilterButtons(sectionId, errorId) {
+      const section = document.getElementById(sectionId);
+      const buttons = section.querySelectorAll('button');
+      const errorDiv = document.getElementById(errorId);
 
-    <div class="p"> Floor No</div>
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const wasActive = button.classList.contains('active');
+          // Remove all selections
+          buttons.forEach(btn => btn.classList.remove('active'));
 
-    <input type="text" style="height: 40px; width:400px;">
+          // Toggle selection
+          if (!wasActive) {
+            button.classList.add('active');
+          }
+
+          // Show or hide error message
+          const selected = section.querySelector('button.active');
+          errorDiv.textContent = selected ? '' : 'Please complete the required field.';
+        });
+      });
+    }
+
+    // Initialize all sections
+    sections.forEach(({ id, errorId }) => {
+      setupFilterButtons(id, errorId);
+    });
+  </script>
+
+
+   
+
+   
+ <!-- Super Builtup -->
+  <div class="form-group">
+    <label>Super Builtup area sqft *</label>
+    <input type="text" id="superBuiltup" />
+    <div class="tick-icon" id="tick-super">✔</div>
+    <div class="error-message" id="error-super">Super Builtup area sqft is mandatory. Please complete the required field.</div>
+    <div class="error-message" id="error-super-max">Super Builtup area sqft has a maximum value of 99999999.</div>
+  </div>
+
+  <!-- Carpet Area -->
+  <div class="form-group">
+    <label>Carpet Area sqft *</label>
+    <input type="text" id="carpetArea" />
+    <div class="tick-icon" id="tick-carpet">✔</div>
+    <div class="error-message" id="error-carpet">Carpet Area sqft is mandatory. Please complete the required field.</div>
+    <div class="error-message" id="error-carpet-max">Carpet Area sqft has a maximum value of 99999999.</div>
+  </div>
+
+  <!-- Maintenance -->
+  <div class="form-group">
+    <label>Maintenance (Monthly)</label>
+    <input type="text" id="maintenance" />
+    <div class="tick-icon" id="tick-maintenance">✔</div>
+    <div class="error-message" id="error-maintenance">Maintenance (Monthly) is mandatory. Please complete the required field.</div>
+    <div class="error-message" id="error-maintenance-max">Maintenance (Monthly) has a maximum value of 99999999.</div>
+  </div>
+
+  <!-- Total Floors -->
+  <div class="form-group">
+    <label>Total Floors</label>
+    <input type="text" id="totalFloors" />
+    <div class="tick-icon" id="tick-total">✔</div>
+    <div class="error-message" id="error-total">Total Floors is mandatory. Please complete the required field.</div>
+    <div class="error-message" id="error-total-max">Total Floors has a maximum value of 200.</div>
+  </div>
+
+  <!-- Floor No -->
+  <div class="form-group">
+    <label>Floor No</label>
+    <input type="text" id="floorNo" />
+    <div class="tick-icon" id="tick-floor">✔</div>
+    <div class="error-message" id="error-floor">Floor No is mandatory. Please complete the required field.</div>
+    <div class="error-message" id="error-floor-max">Floor No has a maximum value of 200.</div>
+  </div>
+
+  <script>
+    // Allow only digits
+    function allowOnlyNumbers(input) {
+      input.addEventListener('input', () => {
+        input.value = input.value.replace(/\D/g, '');
+      });
+    }
+
+    // Validation logic
+    function addValidation(inputId, tickId, errorId, maxVal = null, maxErrorId = null) {
+      const input = document.getElementById(inputId);
+      const tick = document.getElementById(tickId);
+      const error = document.getElementById(errorId);
+      const maxError = maxErrorId ? document.getElementById(maxErrorId) : null;
+      let clickCount = 0;
+
+      allowOnlyNumbers(input);
+
+      input.addEventListener('click', () => {
+        clickCount++;
+        if (clickCount >= 2 && input.value.trim() === '') {
+          error.style.display = 'block';
+          if (maxError) maxError.style.display = 'none';
+        }
+      });
+
+      input.addEventListener('blur', () => {
+        const value = input.value.trim();
+
+        if (value === '') {
+          tick.style.display = 'none';
+          error.style.display = 'block';
+          if (maxError) maxError.style.display = 'none';
+          return;
+        }
+
+        if (maxVal !== null && parseInt(value) > maxVal) {
+          tick.style.display = 'none';
+          if (maxError) maxError.style.display = 'block';
+          error.style.display = 'none';
+          return;
+        }
+
+        // All validations passed
+        tick.style.display = 'block';
+        error.style.display = 'none';
+        if (maxError) maxError.style.display = 'none';
+      });
+    }
+
+    // All field configs
+    const fields = [
+      { inputId: 'superBuiltup', tickId: 'tick-super', errorId: 'error-super', maxVal: 99999999, maxErrorId: 'error-super-max' },
+      { inputId: 'carpetArea', tickId: 'tick-carpet', errorId: 'error-carpet', maxVal: 99999999, maxErrorId: 'error-carpet-max' },
+      { inputId: 'maintenance', tickId: 'tick-maintenance', errorId: 'error-maintenance', maxVal: 99999999, maxErrorId: 'error-maintenance-max' },
+      { inputId: 'totalFloors', tickId: 'tick-total', errorId: 'error-total', maxVal: 200, maxErrorId: 'error-total-max' },
+      { inputId: 'floorNo', tickId: 'tick-floor', errorId: 'error-floor', maxVal: 200, maxErrorId: 'error-floor-max' }
+    ];
+
+    // Initialize all
+    fields.forEach(f => {
+      addValidation(f.inputId, f.tickId, f.errorId, f.maxVal, f.maxErrorId);
+    });
+  </script>
+
  
- 
-        <div class="p">Car Parking</div>
+
+     <div class="car">
+   <div class="parking">Car Parking</div>
       <div class="container">
                 
-        <div class="box">0</div>
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
-        <div class="box">3+</div>
+        <div class="box1">0</div>
+        <div class="box1">1</div>
+        <div class="box1">2</div>
+        <div class="box1">3</div>
+        <div class="box1">3+</div>
     </div>
+     </div>
 
-   <div class="p">Facing</div>
+
+     <div class="facing"> 
+   <div class="face">Facing</div>
 
      <select id="states" name="states">
-    <option value=""></option>
-    <option value="andhra_pradesh">East</option>
-    <option value="arunachal_pradesh">West</option>
-    <option value="assam">North</option>
-    <option value="bihar">South</option>
+    <option>East</option>
+     <option >South East</option>
+    <option >West</option>
+     <option value="">South West</option>
+    <option>North</option>
+     <option value="">North West</option>
+    <option >South</option>
+     <option value="">North East</option>
    
   </select>
-
-
-    
-       <div class="p"> Project Name</div>
-
+  </div>
        
-    <label for="project-name"></label>
-    <input type="text" id="project-name" class="project-name-box" maxlength="70"/>
 
-    <!-- This is where the character count will be displayed -->
-    <div class="character-count">
-        <span id="char-count">0</span> / 70 characters
+  <h3 style="padding-left: 35px;padding-top: 30px;">Project name *</h3>
+     <div class="pro">
+  <label for="projectInputField"></label> 
+  <div class="project-input-wrapper"> 
+    <input type="text" id="projectInputField" maxlength="70" style="width: 400px;"> 
+    <span class="project-tick" id="projectTick">&#10004;</span>
+    <div class="project-char-counter" id="projectCharCounter">0 / 70 characters</div>
+  </div>
+  
+  <div class="project-error-msg" id="projectErrorMsg">A minimum length of 10 characters is required. Please edit the field.</div> 
+
+  <script>
+    const projectInputField = document.getElementById('projectInputField');
+    const projectCharCounter = document.getElementById('projectCharCounter');
+    const projectErrorMsg = document.getElementById('projectErrorMsg');
+    const projectTick = document.getElementById('projectTick');
+
+    projectInputField.addEventListener('input', () => {
+      const length = projectInputField.value.length;
+      projectCharCounter.textContent = `${length} / 70 characters`;
+
+      if (length >= 10) {
+        projectErrorMsg.style.display = 'none';
+        projectTick.style.display = 'inline-block';
+      } else if (length > 0 && length < 10) {
+        projectErrorMsg.style.display = 'block';
+        projectTick.style.display = 'none';
+      } else {
+        projectErrorMsg.style.display = 'none';
+        projectTick.style.display = 'none';
+      }
+    });
+  </script>
+
+   </div>
+
+
+
+
+
+    <div class="rupees" style="border-bottom: 1px solid black;padding-bottom: 30px;">
+
     </div>
 
-    <script>
-        // JavaScript to update the existing character count element
-        const projectNameInput = document.getElementById('project-name');
-        const charCountDisplay = document.getElementById('char-count');
+    <div class="add">
 
-        // Update character count whenever the user types
-        projectNameInput.addEventListener('input', function() {
-            const currentLength = projectNameInput.value.length;
-            charCountDisplay.textContent = currentLength;
-        });
-    </script>
-       
    
+     <label for="adTitleBox">Ad title *</label>
+  <div class="title-input-wrapper">
+    <input type="text" id="adTitleBox" maxlength="70" />
+    <span class="tick-icon-title" id="adTitleTick">&#10004;</span>
+    <div class="title-char-count" id="adTitleCharCount">0 / 70 characters</div>
+  </div>
+  <div class="title-error-msg" id="adTitleErrorMsg">A minimum length of 10 characters is required. Please edit the field.</div>
 
-   <div class="p"> Ad title *</div>
-   <div class="container">
-       
-        <textarea id="textInput" maxlength="70" ></textarea> 
-        <div class="counter" id="charCount">0 / 70 characters</div>
-    </div>
+  <script>
+    const adTitleBox = document.getElementById('adTitleBox');
+    const adTitleCharCount = document.getElementById('adTitleCharCount');
+    const adTitleErrorMsg = document.getElementById('adTitleErrorMsg');
+    const adTitleTick = document.getElementById('adTitleTick');
 
-    <!-- Move the script tag here, so it runs after the HTML is loaded -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const textInput = document.getElementById('textInput');
-            const charCount = document.getElementById('charCount');
+    adTitleBox.addEventListener('input', () => {
+      const length = adTitleBox.value.length;
+      adTitleCharCount.textContent = `${length} / 70 characters`;
 
-            textInput.addEventListener('input', function() {
-                const currentLength = textInput.value.length ;
-                
-                charCount.textContent = `${currentLength} / 70 characters`;
-            });
-        });
-    </script>
-   
-    
+      if (length >= 10) {
+        adTitleErrorMsg.style.display = 'none';
+        adTitleTick.style.display = 'inline-block';
+      } else if (length > 0 && length < 10) {
+        adTitleErrorMsg.style.display = 'block';
+        adTitleTick.style.display = 'none';
+      } else {
+        adTitleErrorMsg.style.display = 'none';
+        adTitleTick.style.display = 'none';
+      }
+    });
+  </script>
 
-  <div class="p">  Description *</div>
-   <input type="text" style="height: 60px; width:400px;">
-     
-              
-              
-           </div>
+   </div>
 
-           <div class="border"></div>
+        <div class="Descr">
+     <label for="descBox">Description *</label>
+  <div class="desc-input-wrapper">
+    <textarea id="descBox" maxlength="4096"></textarea>
+    <span class="tick-icon" id="descTick">&#10004;</span> <!-- Circle tick -->
+    <div class="desc-char-count" id="descCharCount">0 / 4096 characters</div>
+  </div>
+  <div class="desc-error-msg" id="descErrorMsg">A minimum length of 10 characters is required. Please edit the field.</div>
 
-           <div class="set">
-            <h2>Set a price</h2>
+  <script>
+    const customDescBox = document.getElementById('descBox');
+    const customCharCount = document.getElementById('descCharCount');
+    const customErrorMsg = document.getElementById('descErrorMsg');
+    const customTickIcon = document.getElementById('descTick');
 
-            <div class="price1">price *</div>
-          
-            <input type="text"value=" ₹" style="height: 40px; width:400px;">
-           </div>
-           <div class="border">
-            
-           </div>
-          
+    customDescBox.addEventListener('input', () => {
+      const currentLength = customDescBox.value.length;
+      customCharCount.textContent = `${currentLength} / 4096 characters`;
+
+      if (currentLength >= 10) {
+        customErrorMsg.style.display = 'none';
+        customTickIcon.style.display = 'inline-block';
+      } else if (currentLength > 0 && currentLength < 10) {
+        customErrorMsg.style.display = 'block';
+        customTickIcon.style.display = 'none';
+      } else {
+        customTickIcon.style.display = 'none';
+        customErrorMsg.style.display = 'none';
+      }
+    });
+  </script>
+  </div>
+
+<h3 style="padding-left: 35px;padding-top: 50px;">SET A PRICE</h3>
+<form style="padding-left: 35px;padding-top: 10px;">
+    <label for="price">Price:</label>
+    <input type="text" id="price" name="price" required oninput="validatePrice()"> <br>
+    <span id="error-message" style="color: red; display: none;">Please enter a valid number.</span>
+  </form>
+
+  <script>
+    function validatePrice() {
+      const priceInput = document.getElementById('price');
+      const errorMessage = document.getElementById('error-message');
+      // Ensure the input is a number and allow only digits
+      const value = priceInput.value;
+      if (/[^0-9]/.test(value)) {
+        priceInput.value = value.replace(/[^0-9]/g, '');  // Remove non-numeric characters
+      }
+      if (priceInput.value === "") {
+        errorMessage.style.display = "inline";
+      } else {
+        errorMessage.style.display = "none";
+      }
+    }
+  </script>
+
+
+
 
 
             <h2 id="upload">Upload up to 20 photos</h2>
            <div class="grid">  </div>
          
+<div class="grid" id="imageGrid"></div>
+<input type="file" id="fileInput" accept="image/*">
 
-  <script>
-    const grid = document.querySelector('.grid');
+<script>
+  const grid = document.getElementById('imageGrid');
+  const fileInput = document.getElementById('fileInput');
+  let draggedIndex = null;
 
-    for (let i = 0; i < 20; i++) {
-      const box = document.createElement('div');
-      box.classList.add('box');
+  const cameraIcon = '📷';
+  const imageData = Array(20).fill(null);
 
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.id = `upload-${i}`;
+  function createBox(index) {
+    const box = document.createElement('div');
+    box.className = 'box';
+    box.setAttribute('data-index', index);
+    box.setAttribute('draggable', true);
 
-      const label = document.createElement('label');
-      label.htmlFor = `upload-${i}`;
-      label.classList.add('camera-icon');
-      label.innerHTML = '📷';
+    const content = document.createElement('div');
+    content.className = 'box-content';
 
-      input.addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (file) {
-          const img = document.createElement('img');
-          img.src = URL.createObjectURL(file);
-          box.appendChild(img);
-          label.style.display = 'none';
-        }
-      });
+    const icon = document.createElement('span');
+    icon.innerHTML = cameraIcon;
 
-      box.appendChild(input);
-      box.appendChild(label);
-      grid.appendChild(box);
+    const remove = document.createElement('div');
+    remove.className = 'remove-icon';
+    remove.innerHTML = '×';
+
+    remove.addEventListener('click', (e) => {
+      e.stopPropagation();
+      imageData[index] = null;
+      renderGrid();
+    });
+
+    box.addEventListener('click', () => {
+      fileInput.dataset.index = index;
+      fileInput.click();
+    });
+
+    box.addEventListener('dragstart', () => {
+      draggedIndex = index;
+    });
+
+    box.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+
+    box.addEventListener('drop', () => {
+      if (draggedIndex !== null && draggedIndex !== index) {
+        [imageData[draggedIndex], imageData[index]] = [imageData[index], imageData[draggedIndex]];
+        renderGrid();
+      }
+    });
+
+    if (imageData[index]) {
+      const img = document.createElement('img');
+      img.src = imageData[index];
+      content.appendChild(img);
+      box.classList.add('filled');
+    } else {
+      content.appendChild(icon);
+      box.classList.remove('filled');
     }
-  </script>
 
-  <div class="border"></div>
+    box.appendChild(content);
+    box.appendChild(remove);
+    return box;
+  }
 
-  <div class="confirm">
+  function renderGrid() {
+    grid.innerHTML = '';
+    for (let i = 0; i < 20; i++) {
+      grid.appendChild(createBox(i));
+    }
+  }
+
+  fileInput.addEventListener('change', (e) => {
+    const index = parseInt(e.target.dataset.index);
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        imageData[index] = evt.target.result;
+        renderGrid();
+      };
+      reader.readAsDataURL(file);
+    }
+    fileInput.value = '';
+  });
+
+  renderGrid();
+</script>
+
+
+
+
+
+ <div class="confirm">
     <h2>Confirm your location</h2>
       <div class="confirm1">
          
@@ -606,23 +1156,9 @@
     <option value="puducherry">Puducherry</option>
   </select>
    
-
   </div>
 
 
- 
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
